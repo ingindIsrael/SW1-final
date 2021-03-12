@@ -9,6 +9,12 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Characters } from "./component/characters";
+import { OpenCard } from "./component/opencard";
+import { Charlist } from "./views/charlist";
+import { Planetlist } from "./views/planetlist";
+import { Vehicleslist } from "./views/vehicleslist";
+import { Planets } from "./component/planets";
 
 //create your first component
 const Layout = () => {
@@ -31,8 +37,23 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
+						<Route exact path="/charlist">
+							<Charlist />
+						</Route>
+						<Route exact path="/characters">
+							<OpenCard />
+						</Route>
+						<Route exact path="/planetlist">
+							<Planetlist />
+						</Route>
+						<Route exact path="/vehicleslist">
+							<Vehicleslist />
+						</Route>
 						<Route>
-							<h1>Not found!</h1>
+							<h1 className="p-3">
+								There has been a disturbance in the force, I can feel it! find the page you are looking
+								for we can not my young padawan
+							</h1>
 						</Route>
 					</Switch>
 					<Footer />
