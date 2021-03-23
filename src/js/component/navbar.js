@@ -1,7 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { Fav } from "./fav";
+import { Characters } from "../component/characters";
+import { Context } from "../store/appContext";
+import Dropdown from "react-bootstrap/Dropdown";
+import Badge from "react-bootstrap/Badge";
+import PropTypes, { elementType } from "prop-types";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
-export const Navbar = () => {
+export const Navbar = props => {
+	const params = useParams();
+	const { store, actions } = useContext(Context);
+
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
@@ -11,7 +22,33 @@ export const Navbar = () => {
 				{/*</span>*/}
 			</Link>
 			<div className="ml-auto">
-				{/*<Link to="/demo">*/}
+				<Dropdown>
+					<Dropdown.Toggle variant="secondary" id="dropdown-basic">
+						Favorites <Badge variant="light">{store.favorites.length}</Badge>
+					</Dropdown.Toggle>
+
+					<Dropdown.Menu>
+						{store.favorites.length === 0 && (
+							<Dropdown.Item>favorites you have not yet my padawan</Dropdown.Item>
+						)}
+						<Dropdown.Item className="active-white" href="#/action-1">
+							{store.favorites.map((item, i) => {
+								return (
+									<Link
+										className="active-white"
+										key={i}
+										to={`/${item.type}/${item.name}`}
+										style={{ textDecoration: "none" }}>
+										<Fav nombre={item.name} />
+									</Link>
+								);
+							})}
+						</Dropdown.Item>
+					</Dropdown.Menu>
+				</Dropdown>
+			</div>
+			{/*<div className="ml-auto">
+				{/*<Link to="/demo">
 				<button className="btn btn-dark">
 					Favorites
 					<span className="badge badge-light ml-1">0</span>
@@ -24,23 +61,17 @@ export const Navbar = () => {
 						aria-expanded="false"
 					/>
 					<div className="dropdown-menu">
-						<a className="dropdown-item" href="#">
-							Action
-						</a>
-						<a className="dropdown-item" href="#">
-							Another action
-						</a>
-						<a className="dropdown-item" href="#">
-							Something else here
-						</a>
-						<div role="separator" className="dropdown-divider" />
-						<a className="dropdown-item" href="#">
-							Separated link
-						</a>
+						<a className="dropdown-item">xyz</a>;
+						{store.favorites.map((item, i) => {
+							return <Fav key={i} nombre={item} />;
+						})}
 					</div>
 				</button>
-				{/*</Link>*/}
-			</div>
+				{/*</Link>
+			</div>*/}
 		</nav>
 	);
+};
+Navbar.propTypes = {
+	nombre: PropTypes.string
 };

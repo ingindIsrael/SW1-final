@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import openfoto from "/workspace/react-hello-webapp/src/img/opencard.png";
 import PropTypes from "prop-types";
 
-export const Opencard = props => {
+export const Opencardp = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
@@ -27,21 +27,21 @@ export const Opencard = props => {
 						<thead>
 							<tr>
 								<th scope="col">Name</th>
-								<th scope="col">Birth</th>
-								<th scope="col">Gender</th>
-								<th scope="col">Height</th>
-								<th scope="col">Hair color</th>
-								<th scope="col">Eyes color</th>
+								<th scope="col">Population</th>
+								<th scope="col">Climate</th>
+								<th scope="col">Terrain</th>
+								<th scope="col">Gravity</th>
+								<th scope="col">Surface water</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<th scope="row">{props.name}</th>
-								<td>{props.birth}</td>
-								<td>{props.gender}</td>
-								<td>{props.height}</td>
-								<td>{props.hair}</td>
-								<td>{props.eye}</td>
+								<td>{props.population}</td>
+								<td>{props.climate}</td>
+								<td>{props.terrain}</td>
+								<td>{props.gravity}</td>
+								<td>{props.water}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -50,11 +50,11 @@ export const Opencard = props => {
 		</div>
 	);
 };
-Opencard.propTypes = {
+Opencardp.propTypes = {
 	name: PropTypes.string,
-	gender: PropTypes.string,
-	eye: PropTypes.string,
-	hair: PropTypes.string,
-	birth: PropTypes.string,
-	height: PropTypes.string
+	population: PropTypes.string,
+	climate: PropTypes.string,
+	terrain: PropTypes.string,
+	gravity: PropTypes.string,
+	water: PropTypes.string
 };

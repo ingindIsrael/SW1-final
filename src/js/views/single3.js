@@ -2,26 +2,26 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { Opencard } from "../component/opencard";
+import { Opencardv } from "../component/opencardv";
 
-export const Single = props => {
+export const Single3 = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	console.log(params);
 	return (
 		<div className="container-fluid mb-5">
 			<div className="row flex-row flex-nowrap overflow-auto ">
-				{store.people.map((item, i) => {
+				{store.vehicles.map((item, i) => {
 					if (params.name == item.name) {
 						return (
-							<Opencard
+							<Opencardv
 								key={i}
 								name={item.name}
-								gender={item.gender}
-								eye={item.eye_color}
-								hair={item.hair_color}
-								birth={item.birth_year}
-								height={item.height}
+								model={item.model}
+								passengers={item.passengers}
+								manufacturer={item.manufacturer}
+								crew={item.crew}
+								consumables={item.consumables}
 							/>
 						);
 					}
@@ -31,6 +31,6 @@ export const Single = props => {
 	);
 };
 
-Single.propTypes = {
+Single3.propTypes = {
 	match: PropTypes.object
 };

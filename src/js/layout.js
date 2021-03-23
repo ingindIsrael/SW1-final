@@ -5,12 +5,15 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import { Single2 } from "./views/single2";
+import { Single3 } from "./views/single3";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Characters } from "./component/characters";
-import { OpenCard } from "./component/opencard";
+import { Opencard } from "./component/opencard";
+import { Opencardp } from "./component/opencardp";
 import { Charlist } from "./views/charlist";
 import { Planetlist } from "./views/planetlist";
 import { Vehicleslist } from "./views/vehicleslist";
@@ -34,14 +37,20 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/single/:theid">
+						<Route exact path="/people/:name">
 							<Single />
+						</Route>
+						<Route exact path="/planets/:name">
+							<Single2 />
+						</Route>
+						<Route exact path="/vehicles/:name">
+							<Single3 />
 						</Route>
 						<Route exact path="/charlist">
 							<Charlist />
 						</Route>
-						<Route exact path="/characters">
-							<OpenCard />
+						<Route exact path="/opencard">
+							<Opencard />
 						</Route>
 						<Route exact path="/planetlist">
 							<Planetlist />
