@@ -20,7 +20,7 @@ export const Single = props => {
 								gender={item.gender}
 								eye={item.eye_color}
 								hair={item.hair_color}
-								birth={item.birth_year}
+								birth={item.birth}
 								height={item.height}
 							/>
 						);

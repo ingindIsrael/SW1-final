@@ -12,7 +12,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 export const Navbar = props => {
 	const params = useParams();
 	const { store, actions } = useContext(Context);
-
+	console.log("favoritos desde navbar " + store.favorites);
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
@@ -32,17 +32,18 @@ export const Navbar = props => {
 							<Dropdown.Item>favorites you have not yet my padawan</Dropdown.Item>
 						)}
 						<Dropdown.Item className="active-white" href="#/action-1">
-							{store.favorites.map((item, i) => {
-								return (
-									<Link
-										className="active-white"
-										key={i}
-										to={`/${item.type}/${item.name}`}
-										style={{ textDecoration: "none" }}>
-										<Fav nombre={item.name} />
-									</Link>
-								);
-							})}
+							{store.favorites &&
+								store.favorites.map((item, i) => {
+									return (
+										<Link
+											className="active-white"
+											key={i}
+											to={`/${item.type}/${item.name}`}
+											style={{ textDecoration: "none" }}>
+											<Fav nombre={item.name} />
+										</Link>
+									);
+								})}
 						</Dropdown.Item>
 					</Dropdown.Menu>
 				</Dropdown>
