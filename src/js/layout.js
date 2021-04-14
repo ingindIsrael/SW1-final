@@ -9,6 +9,8 @@ import { Single2 } from "./views/single2";
 import { Single3 } from "./views/single3";
 import injectContext from "./store/appContext";
 
+import { Login } from "./component/login";
+
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Characters } from "./component/characters";
@@ -32,6 +34,9 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
+							<Login />
+						</Route>
+						<Route exact path="/home">
 							<Home />
 						</Route>
 						<Route exact path="/demo">

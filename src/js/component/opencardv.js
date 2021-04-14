@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import openfoto from "/workspace/react-hello-webapp/src/img/opencard.png";
+import openfoto from "/workspace/SW1-final/src/img/opencard.png";
 import PropTypes from "prop-types";
 
 export const Opencardv = props => {
